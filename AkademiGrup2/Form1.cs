@@ -18,47 +18,70 @@ namespace AkademiGrup2
             InitializeComponent();
         }
 
+        //sınıf + nesne
+        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-CSTSJL1\\MSSQLSERVER2019;Initial Catalog=DbAkademiGrup2;Integrated Security=True");
+        string sql = "Select * from TblCustomer";
+
+        void txtBosalt()
+        {
+            foreach (Control item in Controls)
+            {
+                if (item is TextBox && item is ComboBox)
+                {
+                    item.Text = "";
+                }
+            }
+        }
+
+        void listele()
+        {
+            SqlCommand commandL = new SqlCommand(sql, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(commandL);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
         private void btnList_Click(object sender, EventArgs e)
         {
-            //sınıf + nesne
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-CSTSJL1\\MSSQLSERVER2019;Initial Catalog=DbAkademiGrup2;Integrated Security=True");
 
-            string sql = "Select * from TblCustomer";
+
+            //string sql1 = "Select * from TblCustomer where CustomerID = '"+txtID.Text+"'  ";
+            string sql1 = "Select * from TblCustomer where CustomerID = @pw1  ";
+
 
 
             if (txtID.Text=="")
             {
-                SqlCommand command = new SqlCommand(sql, connection);
+                txtBosalt();
+                listele();
+                //txtName.Text = "";
+                //txtSurname.Text = "";
+                //txtBalance.Text = "";
+                //cmbCity.Text = "";
 
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-                DataTable dt = new DataTable();
-
-                adapter.Fill(dt);
-                dataGridView1.DataSource = dt;
 
             }
             else
             {
-                SqlCommand command = new SqlCommand(sql, connection);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sql1, connection);
+                command.Parameters.AddWithValue("@pw1", txtID.Text);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    txtName.Text = reader["CustomerName"].ToString();
+                    txtSurname.Text = reader["CustomerSurname"].ToString();
+                    txtBalance.Text = reader["CustomerBalance"].ToString();
+                    cmbCity.Text = reader["CustomerCity"].ToString();
+                }
+                connection.Close();
 
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-                
             }
-
-
-
-
-
-
-
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-CSTSJL1\\MSSQLSERVER2019;Initial Catalog=DbAkademiGrup2;Integrated Security=True");
 
             connection.Open();
 
@@ -72,39 +95,43 @@ namespace AkademiGrup2
             command.ExecuteNonQuery();
             connection.Close();
             MessageBox.Show("Müşteri başarılı bir şekilde eklendi");
+            txtBosalt();
+            listele();
+
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-CSTSJL1\\MSSQLSERVER2019;Initial Catalog=DbAkademiGrup2;Integrated Security=True");
-
             connection.Open();
             SqlCommand command = new SqlCommand("Delete From TblCustomer Where CustomerID=@p1", connection);
             command.Parameters.AddWithValue("@p1", txtID.Text);
             command.ExecuteNonQuery();
             connection.Close();
             MessageBox.Show("Müşteri başarılı bir şekilde silindi");
+            txtBosalt();
+            listele();
 
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-CSTSJL1\\MSSQLSERVER2019;Initial Catalog=DbAkademiGrup2;Integrated Security=True");
-
             connection.Open();
             SqlCommand command = new SqlCommand("Update TblCustomer set CustomerName=@p1,CustomerSurname=@p2, CustomerCity=@p3, CustomerBalance=@p4 where CustomerID=@p5 ", connection);
 
             command.Parameters.AddWithValue("@p1", txtName.Text);
             command.Parameters.AddWithValue("@p2", txtSurname.Text);
             command.Parameters.AddWithValue("@p3", cmbCity.Text);
-            command.Parameters.AddWithValue("@p4", txtBalance.Text);
+            command.Parameters.AddWithValue("@p4", Convert.ToDecimal(txtBalance.Text));
             command.Parameters.AddWithValue("@p5", txtID.Text);
             command.ExecuteNonQuery();
 
             connection.Close();
 
             MessageBox.Show("Müşteri başarılı bir şekilde güncellenmiştir");
+            txtBosalt();
+            listele();
+
         }
     }
 }
