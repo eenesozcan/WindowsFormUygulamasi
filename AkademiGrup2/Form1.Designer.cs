@@ -131,7 +131,7 @@
             // btnList
             // 
             this.btnList.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnList.Location = new System.Drawing.Point(534, 70);
+            this.btnList.Location = new System.Drawing.Point(543, 65);
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(122, 33);
             this.btnList.TabIndex = 10;
@@ -142,7 +142,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnDelete.Location = new System.Drawing.Point(534, 121);
+            this.btnDelete.Location = new System.Drawing.Point(543, 226);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(122, 33);
             this.btnDelete.TabIndex = 11;
@@ -153,7 +153,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSave.Location = new System.Drawing.Point(534, 172);
+            this.btnSave.Location = new System.Drawing.Point(543, 118);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(122, 33);
             this.btnSave.TabIndex = 12;
@@ -164,7 +164,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnUpdate.Location = new System.Drawing.Point(534, 225);
+            this.btnUpdate.Location = new System.Drawing.Point(543, 173);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(122, 33);
             this.btnUpdate.TabIndex = 13;
@@ -219,6 +219,7 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

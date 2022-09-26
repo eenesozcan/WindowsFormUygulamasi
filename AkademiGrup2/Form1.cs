@@ -103,12 +103,14 @@ namespace AkademiGrup2
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+
+
             connection.Open();
             SqlCommand command = new SqlCommand("Delete From TblCustomer Where CustomerID=@p1", connection);
             command.Parameters.AddWithValue("@p1", txtID.Text);
             command.ExecuteNonQuery();
             connection.Close();
-            MessageBox.Show("Müşteri başarılı bir şekilde silindi");
+            MessageBox.Show("Müşteri başarılı bir şekilde silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Question);
             txtBosalt();
             listele();
 

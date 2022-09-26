@@ -57,6 +57,7 @@ namespace AkademiGrup2
             command.ExecuteNonQuery();
             connection.Close();
             MessageBox.Show("Ürün başarılı bir şekilde silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            connection.Close();
 
         }
 
