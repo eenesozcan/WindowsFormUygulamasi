@@ -40,10 +40,12 @@
             this.btnA = new System.Windows.Forms.Button();
             this.btnB = new System.Windows.Forms.Button();
             this.btnCreatCode = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.imgQRCode = new System.Windows.Forms.PictureBox();
+            this.btnQR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgQRCode)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -163,15 +165,6 @@
             this.btnCreatCode.UseVisualStyleBackColor = true;
             this.btnCreatCode.Click += new System.EventHandler(this.btnCreatCode_Click);
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(538, 179);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 33);
-            this.button2.TabIndex = 22;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // txtCode
             // 
             this.txtCode.Location = new System.Drawing.Point(140, 118);
@@ -188,14 +181,36 @@
             this.label3.TabIndex = 23;
             this.label3.Text = "Kategori Kodu:";
             // 
+            // imgQRCode
+            // 
+            this.imgQRCode.Image = global::AkademiGrup2.Properties.Resources.WhatsApp_Image_2022_09_22_at_10_44_17;
+            this.imgQRCode.Location = new System.Drawing.Point(680, 25);
+            this.imgQRCode.Name = "imgQRCode";
+            this.imgQRCode.Size = new System.Drawing.Size(194, 178);
+            this.imgQRCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgQRCode.TabIndex = 25;
+            this.imgQRCode.TabStop = false;
+            // 
+            // btnQR
+            // 
+            this.btnQR.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnQR.Location = new System.Drawing.Point(538, 179);
+            this.btnQR.Name = "btnQR";
+            this.btnQR.Size = new System.Drawing.Size(135, 33);
+            this.btnQR.TabIndex = 26;
+            this.btnQR.Text = "QR Kod Üret";
+            this.btnQR.UseVisualStyleBackColor = true;
+            this.btnQR.Click += new System.EventHandler(this.btnQR_Click);
+            // 
             // FrmCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 443);
+            this.ClientSize = new System.Drawing.Size(886, 442);
+            this.Controls.Add(this.btnQR);
+            this.Controls.Add(this.imgQRCode);
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCreatCode);
             this.Controls.Add(this.btnB);
             this.Controls.Add(this.btnA);
@@ -213,6 +228,7 @@
             this.Name = "FrmCategory";
             this.Text = "FrmCustomer";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgQRCode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,8 +248,9 @@
         private System.Windows.Forms.Button btnA;
         private System.Windows.Forms.Button btnB;
         private System.Windows.Forms.Button btnCreatCode;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox imgQRCode;
+        private System.Windows.Forms.Button btnQR;
     }
 }

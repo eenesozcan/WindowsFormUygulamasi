@@ -1,13 +1,17 @@
-﻿using System;
+﻿using QRCoder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace AkademiGrup2
 {
@@ -117,6 +121,30 @@ namespace AkademiGrup2
             txtCode.Text = harfler[sayi] + harfler[sayi2] + harfler[sayi3] + sayi4 + sayi5;
 
 
+        }
+
+
+
+        private void btnQR_Click(object sender, EventArgs e)
+        {
+            string str = txtCode.Text;
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(str, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            imgQRCode.Image = qrCodeImage;
+
+
+            //using (MemoryStream ms = new MemoryStream())
+            //{
+            //    QRCodeGenerator koduret = new QRCodeGenerator();
+            //    QRCodeGenerator.QRCode kod = koduret.CreateQrCode(txtCode.Text, QRCodeGenerator.ECCLevel.Q);
+            //    using (Bitmap bmp = kod.GetGraphic(5))
+            //    {
+            //        bmp.Save(ms, ImageFormat.Png);
+            //        img_yeri.ImageUrl = "data:imge/png;base64," + Convert.ToBase64String(ms.ToArray());
+            //    }
+            //}
         }
     }
 }
