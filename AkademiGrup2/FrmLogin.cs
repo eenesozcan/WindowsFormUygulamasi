@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,16 +17,20 @@ namespace AkademiGrup2
         {
             InitializeComponent();
         }
-
+        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-CSTSJL1\\MSSQLSERVER2019; Initial catalog=DbAkademiGrup2; integrated security=true");
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text=="admin" && textBox2.Text=="1234")
+            connection.Open();
+            SqlCommand command = new SqlCommand("Select * from TblAdmin Where Username=@p1 and Password=@p2", connection);
+            command.Parameters.AddWithValue("@p1", txtUserName.Text);
+            command.Parameters.AddWithValue("@p2", txtPassword.Text);
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
             {
-                MessageBox.Show("yes");
-            }
-            else
-            {
-                MessageBox.Show("no");
+                FrmNavigation frm = new FrmNavigation();
+                frm.Show();
+
             }
         }
 
@@ -38,12 +43,12 @@ namespace AkademiGrup2
         {
             if (chcSifreGoster.Checked==true)
             {
-                textBox2.UseSystemPasswordChar = true;
+                txtPassword.UseSystemPasswordChar = true;
                 chcSifreGoster.Text = "Şifreyi Göster";
             }
             else
             {
-                textBox2.UseSystemPasswordChar = false;
+                txtPassword.UseSystemPasswordChar = false;
                 chcSifreGoster.Text = "Şifreyi Gizle";
             }
         }
@@ -53,15 +58,21 @@ namespace AkademiGrup2
             sayac++;
             if (sayac==1)
             {
-                textBox2.UseSystemPasswordChar = false;
+                txtPassword.UseSystemPasswordChar = false;
                 button1.Text = "Şifreyi Gizle";
             }
             if (sayac == 2)
             {
-                textBox2.UseSystemPasswordChar = true;
+                txtPassword.UseSystemPasswordChar = true;
                 button1.Text = "Şifreyi Göster";
                 sayac = 0;
             }
+        }
+
+        private void lnkHesapYokMu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmNewAccount frm = new FrmNewAccount();
+            frm.Show();
         }
     }
 }

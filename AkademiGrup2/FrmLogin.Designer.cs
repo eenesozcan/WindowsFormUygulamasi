@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.btnLogin = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.chcRememberMe = new System.Windows.Forms.CheckBox();
+            this.lnkSifremiUnuttum = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.chcSifreGoster = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lnkHesapYokMu = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -51,14 +52,14 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(211, 158);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(233, 27);
-            this.textBox2.TabIndex = 29;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.txtPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPassword.Location = new System.Drawing.Point(211, 158);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(233, 27);
+            this.txtPassword.TabIndex = 29;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -70,13 +71,13 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Şifreniz :";
             // 
-            // textBox1
+            // txtUserName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(211, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 27);
-            this.textBox1.TabIndex = 27;
+            this.txtUserName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUserName.Location = new System.Drawing.Point(211, 110);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(233, 27);
+            this.txtUserName.TabIndex = 27;
             // 
             // label1
             // 
@@ -88,26 +89,26 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Kullanıcı Adınız :";
             // 
-            // checkBox1
+            // chcRememberMe
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(211, 274);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(105, 23);
-            this.checkBox1.TabIndex = 33;
-            this.checkBox1.Text = "Beni Hatırla";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chcRememberMe.AutoSize = true;
+            this.chcRememberMe.Location = new System.Drawing.Point(211, 274);
+            this.chcRememberMe.Name = "chcRememberMe";
+            this.chcRememberMe.Size = new System.Drawing.Size(105, 23);
+            this.chcRememberMe.TabIndex = 33;
+            this.chcRememberMe.Text = "Beni Hatırla";
+            this.chcRememberMe.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // lnkSifremiUnuttum
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(330, 274);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(114, 19);
-            this.linkLabel1.TabIndex = 34;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Şifremi Unuttum";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lnkSifremiUnuttum.AutoSize = true;
+            this.lnkSifremiUnuttum.Location = new System.Drawing.Point(330, 274);
+            this.lnkSifremiUnuttum.Name = "lnkSifremiUnuttum";
+            this.lnkSifremiUnuttum.Size = new System.Drawing.Size(114, 19);
+            this.lnkSifremiUnuttum.TabIndex = 34;
+            this.lnkSifremiUnuttum.TabStop = true;
+            this.lnkSifremiUnuttum.Text = "Şifremi Unuttum";
+            this.lnkSifremiUnuttum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label3
             // 
@@ -141,24 +142,36 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lnkHesapYokMu
+            // 
+            this.lnkHesapYokMu.AutoSize = true;
+            this.lnkHesapYokMu.Location = new System.Drawing.Point(330, 328);
+            this.lnkHesapYokMu.Name = "lnkHesapYokMu";
+            this.lnkHesapYokMu.Size = new System.Drawing.Size(141, 19);
+            this.lnkHesapYokMu.TabIndex = 38;
+            this.lnkHesapYokMu.TabStop = true;
+            this.lnkHesapYokMu.Text = "Bir Hesabın Yok mu?";
+            this.lnkHesapYokMu.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkHesapYokMu_LinkClicked);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(216)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(590, 377);
+            this.Controls.Add(this.lnkHesapYokMu);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chcSifreGoster);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.lnkSifremiUnuttum);
+            this.Controls.Add(this.chcRememberMe);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLogin";
             this.Text = "Giriş";
             this.ResumeLayout(false);
@@ -169,14 +182,15 @@
         #endregion
 
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.CheckBox chcRememberMe;
+        private System.Windows.Forms.LinkLabel lnkSifremiUnuttum;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chcSifreGoster;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel lnkHesapYokMu;
     }
 }
